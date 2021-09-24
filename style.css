@@ -1,0 +1,85 @@
+body {
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-size: 16px;
+	height: 100vh;
+	color: #333333;
+}
+
+header {
+	font-size: 2rem;
+	text-align: center;
+}
+
+footer {
+	font-size: 1.2rem;
+	text-align: center;
+}
+
+button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.counter-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin: 2em 0;
+	text-align: center;
+}
+
+.counter-value {
+	width: 90vw;
+	font-size: 10rem;
+	line-height: 1;
+}
+
+.counter-control {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 90vw;
+	font-size: 2rem;
+	line-height: 1;
+}
+
+.counter-button {
+	width: 4em;
+	margin: 0 0.4em;
+	padding: 0.5em 1em;
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	border: none;
+	border-radius: 15px;
+	color: #FFFFFF;
+	box-shadow: 0 3px 6px 0px rgb(0 0 0 / 10%);
+	cursor: pointer;
+}
+
+#counterPlus {
+	background-color: #38618c;
+}
+
+#counterMinus {
+	background-color: #ff5964;
+}
+
+#counterReset {
+	background-color: #eeeeee;
+}
