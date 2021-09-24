@@ -1,6 +1,6 @@
 class Counter {
-  constructor() {
-    this._value = 0;
+  constructor(initValue = 0) {
+    this._value = initValue;
   }
 
   get value() {
@@ -12,6 +12,7 @@ class Counter {
   }
 
   minus() {
+    if (this._value <= 0) return;
     this._value--;
   }
 

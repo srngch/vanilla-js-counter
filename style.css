@@ -4,18 +4,20 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	font-family: 'Comfortaa', cursive;
 	font-size: 16px;
 	height: 100vh;
 	color: #333333;
 }
 
 header {
-	font-size: 2rem;
+	font-size: 2.75rem;
 	text-align: center;
 }
 
 footer {
-	font-size: 1.2rem;
+	margin-top: 2rem;
+	font-size: 0.85rem;
 	text-align: center;
 }
 
@@ -23,35 +25,53 @@ button {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+	padding: 0.5em 1em;
+	font-family: 'Comfortaa', cursive;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 3px 6px 0px rgb(0 0 0 / 10%);
+	cursor: pointer;
 }
 
-.wrapper {
+.counter-list {
+	margin-top: 1rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+}
+
+#btnAddCounter {
+	font-size: 1.2rem;
+	line-height: 1.25;
 }
 
 .counter-wrapper {
+	height: 5rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
-	margin: 2em 0;
+	margin-bottom: 1rem;
 	text-align: center;
+	border-bottom: 1px dotted #c3cece;
 }
 
 .counter-value {
-	width: 90vw;
-	font-size: 10rem;
+	font-family: 'Shrikhand', cursive;
+	font-size: 5rem;
 	line-height: 1;
+	width: 8rem;
 }
 
 .counter-control {
+	margin-right: 1em;
+	padding-bottom: 0.3em;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 90vw;
 	font-size: 2rem;
 	line-height: 1;
 }
@@ -59,27 +79,23 @@ button {
 .counter-button {
 	width: 4em;
 	margin: 0 0.4em;
-	padding: 0.5em 1em;
 	font-size: 1.2rem;
 	font-weight: bold;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	border: none;
-	border-radius: 15px;
 	color: #FFFFFF;
-	box-shadow: 0 3px 6px 0px rgb(0 0 0 / 10%);
-	cursor: pointer;
 }
 
-#counterPlus {
+.counter-button.plus {
 	background-color: #38618c;
 }
 
-#counterMinus {
+.counter-button.minus {
 	background-color: #ff5964;
 }
 
-#counterReset {
-	background-color: #eeeeee;
+.counter-button.reset {
+	background-color: #c6c6c6;
+}
+
+.counter-button.remove {
+	background-color: #3c3c3c;
 }

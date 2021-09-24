@@ -2,30 +2,98 @@ import Counter from './counter.js';
 
 const $ = (selector) => document.querySelector(selector);
 
+const store = {
+  setLocalStorage(data) {
+    localStorage.setItem('data', JSON.stringify(data));
+  },
+  getLocalStorage() {
+    return JSON.parse(localStorage.getItem('data'));
+  },
+};
+
 function App() {
-  const counter = new Counter();
-  const domCounterValue = $('#counterValue');
-  const domCounterPlus = $('#counterPlus');
-  const domCounterMinus = $('#counterMinus');
-  const domCounterReset = $('#counterReset');
+  this.state = {
+    id: 0,
+    counterArray: [],
+  };
 
-  function updateValue() {
-    const counterValue = counter.value;
-    domCounterValue.textContent = counterValue;
-  }
+  this.init = () => {
+    const storedData = store.getLocalStorage();
+    if (storedData) {
+      this.state.id = storedData.id;
+      storedData.counterArray.forEach((c) => {
+        addCounter(c.id, c.counter._value);
+        this.state.id = c.id + 1;
+      });
+      return;
+    }
+    addCounter(this.state.id);
+    this.state.id++;
+  };
 
-  domCounterPlus.addEventListener('click', (e) => {
-    counter.plus();
-    updateValue();
+  const $CounterList = $('.counter-list');
+  const $btnAddCounter = $('#btnAddCounter');
+
+  const addCounter = (id, initValue = 0) => {
+    this.state.counterArray.push({
+      id,
+      counter: new Counter(initValue),
+    });
+    $CounterList.insertAdjacentHTML(
+      'beforeend',
+      counterTemplate(id, initValue)
+    );
+  };
+
+  const counterTemplate = (id, value = 0) => `
+		<section class="counter-wrapper" data-id="${id}">
+			<div class="counter-value">${value}</div>
+			<div class="counter-control">
+				<button class="counter-button plus">+</button>
+				<button class="counter-button minus">-</button>
+				<button class="counter-button reset">0</button>
+				<button class="counter-button remove">x</button>
+			</div>
+		</section>
+	`;
+
+  $CounterList.addEventListener('click', (e) => {
+    const classList = e.target.classList;
+    const $wrapper = e.target.closest('.counter-wrapper');
+    const $counterValue = $wrapper.querySelector('.counter-value');
+    const id = Number($wrapper.dataset.id);
+
+    const index = this.state.counterArray.findIndex((c) => c.id === id);
+    let counter = this.state.counterArray[index].counter;
+
+    if (classList.contains('counter-button')) {
+      if (classList.contains('plus')) {
+        counter.plus();
+        $counterValue.textContent = counter.value;
+      }
+      if (classList.contains('minus')) {
+        counter.minus();
+        $counterValue.textContent = counter.value;
+      }
+      if (classList.contains('reset')) {
+        counter.reset();
+        $counterValue.textContent = counter.value;
+      }
+      if (classList.contains('remove') && this.state.counterArray.length > 1) {
+        counter = null;
+        this.state.counterArray.splice(index, 1);
+        $wrapper.remove();
+      }
+      store.setLocalStorage(this.state);
+    }
   });
-  domCounterMinus.addEventListener('click', (e) => {
-    counter.minus();
-    updateValue();
-  });
-  domCounterReset.addEventListener('click', (e) => {
-    counter.reset();
-    updateValue();
+
+  $btnAddCounter.addEventListener('click', (e) => {
+    addCounter(this.state.id);
+    this.state.id++;
+    store.setLocalStorage(this.state);
   });
 }
 
-App();
+const app = new App();
+app.init();
