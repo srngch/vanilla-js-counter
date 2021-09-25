@@ -9,4 +9,4 @@ A simple counter app for learning Class Syntax in vanilla JavaScript.
 - [ ] Compiling using the [Babel](https://babeljs.io/).
 
 ## Preview
-![preview](./images/preview.png)
+![preview](.src/asset/preview.png)

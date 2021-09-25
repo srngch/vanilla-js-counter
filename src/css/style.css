@@ -44,13 +44,6 @@ button:active {
     box-shadow: inset -3px -1px 2px rgb(255 243 187 / 25%), inset 5px 5px 1px rgb(71 71 71 / 25%);
     border: 1;
 }
-/* 
-button:focus {
-	outline-style: none;
-	box-shadow: none;
-	border-color: transparent;
-	border: 4px double #00ff1c;
-} */
 
 a {
 	color:#218dff;
@@ -125,24 +118,24 @@ i {
     background-size: 1em;
     background-repeat: no-repeat;
 }
-
+/* 
 .counter-button.plus {
-	background-image: url('./icons/fontawesome-plus-white.svg');
+	background-image: url('fontawesome-plus-white.svg');
 	background-color: #218dff;
 }
 
 .counter-button.minus {
-	background-image: url('./icons/fontawesome-minus-white.svg');
+	background-image: url('fontawesome-minus-white.svg');
 	background-color: #86c1ff;
 }
 
 .counter-button.reset {
-	background-image: url('./icons/fontawesome-circle-white.svg');
+	background-image: url('fontawesome-circle-white.svg');
 	background-color: #c7c7c7;
 	background-size: 0.6em;
 }
 
 .counter-button.remove {
-	background-image: url('./icons/fontawesome-cancel-white.svg');
+	background-image: url('fontawesome-cancel-white.svg');
 	background-color: #e1aeae;
-}
+} */

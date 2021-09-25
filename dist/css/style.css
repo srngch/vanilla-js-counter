@@ -1,0 +1,147 @@
+/*!*********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/style.css ***!
+  \*********************************************************************/
+body {
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Comfortaa', cursive;
+	font-size: 16px;
+	height: 100vh;
+	color: #333333;
+	background-color: #f8f8ff;
+}
+
+header {
+	margin-top: 2.5%;
+	width: 100%;
+	font-size: 2.75rem;
+	text-align: center;
+}
+
+footer {
+	width: 100%;
+	margin-top: 2rem;
+	font-size: 0.85rem;
+	text-align: center;
+}
+
+button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	padding: 0.5em 1em;
+	font-family: 'Comfortaa', cursive;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 3px 6px 0px rgb(0 0 0 / 10%);
+	cursor: pointer;
+}
+
+button:active {
+    box-shadow: inset -3px -1px 2px rgb(255 243 187 / 25%), inset 5px 5px 1px rgb(71 71 71 / 25%);
+    border: 1;
+}
+
+a {
+	color:#218dff;
+}
+
+i {
+	user-select: none;
+}
+
+.counter-list {
+	margin-top: 1rem;
+	margin-bottom: 1.25rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.counter-add {
+	display: flex;
+	justify-content: center;
+}
+#btnAddCounter {
+	width: 15em;
+	height: 2.5em;
+	font-size: 1.2rem;
+    color: ghostwhite;
+	background-color: #333333;
+}
+
+.counter-wrapper {
+	height: 5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+	text-align: center;
+	border-bottom: 1px dotted #c3cece;
+}
+
+.counter-wrapper:last-child {
+	margin-bottom: 0;
+}
+
+.counter-value {
+	margin-left: 1.5rem;
+	margin-right: 0.25em;
+	font-family: 'Shrikhand', cursive;
+	font-size: 5rem;
+	line-height: 1;
+	min-width: 8rem;
+}
+
+.counter-control {
+	margin-right: 1.5rem;
+	padding-bottom: 0.3em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	line-height: 1;
+}
+
+.counter-button {
+	width: 4em;
+	margin: 0 0.4em;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #FFFFFF;
+	height: 2.5rem;
+	background-position: center;
+    background-size: 1em;
+    background-repeat: no-repeat;
+}
+/* 
+.counter-button.plus {
+	background-image: url('fontawesome-plus-white.svg');
+	background-color: #218dff;
+}
+
+.counter-button.minus {
+	background-image: url('fontawesome-minus-white.svg');
+	background-color: #86c1ff;
+}
+
+.counter-button.reset {
+	background-image: url('fontawesome-circle-white.svg');
+	background-color: #c7c7c7;
+	background-size: 0.6em;
+}
+
+.counter-button.remove {
+	background-image: url('fontawesome-cancel-white.svg');
+	background-color: #e1aeae;
+} */
+
+
+/*# sourceMappingURL=style.css.map*/
