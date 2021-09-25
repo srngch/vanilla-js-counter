@@ -49,44 +49,51 @@ function App() {
 		<section class="counter-wrapper" data-id="${id}">
 			<div class="counter-value">${value}</div>
 			<div class="counter-control">
-				<button class="counter-button plus">+</button>
-				<button class="counter-button minus">-</button>
-				<button class="counter-button reset">0</button>
-				<button class="counter-button remove">x</button>
+				<button class="counter-button plus"><i class="icon-plus"></i></button>
+				<button class="counter-button minus"><i class="icon-minus"></i></button>
+				<button class="counter-button reset"><i class="icon-circle"></i></button>
+				<button class="counter-button remove"><i class="icon-cancel"></i></button>
 			</div>
 		</section>
 	`;
 
-  $CounterList.addEventListener('click', (e) => {
-    const classList = e.target.classList;
-    const $wrapper = e.target.closest('.counter-wrapper');
-    const $counterValue = $wrapper.querySelector('.counter-value');
-    const id = Number($wrapper.dataset.id);
+  $CounterList.addEventListener(
+    'click',
+    (e) => {
+      const classList = e.target.classList;
+      const $wrapper = e.target.closest('.counter-wrapper');
+      const $counterValue = $wrapper.querySelector('.counter-value');
+      const id = Number($wrapper.dataset.id);
 
-    const index = this.state.counterArray.findIndex((c) => c.id === id);
-    let counter = this.state.counterArray[index].counter;
+      const index = this.state.counterArray.findIndex((c) => c.id === id);
+      let counter = this.state.counterArray[index].counter;
 
-    if (classList.contains('counter-button')) {
-      if (classList.contains('plus')) {
-        counter.plus();
-        $counterValue.textContent = counter.value;
+      if (classList.contains('counter-button')) {
+        if (classList.contains('plus')) {
+          counter.plus();
+          $counterValue.textContent = counter.value;
+        }
+        if (classList.contains('minus')) {
+          counter.minus();
+          $counterValue.textContent = counter.value;
+        }
+        if (classList.contains('reset')) {
+          counter.reset();
+          $counterValue.textContent = counter.value;
+        }
+        if (
+          classList.contains('remove') &&
+          this.state.counterArray.length > 1
+        ) {
+          counter = null;
+          this.state.counterArray.splice(index, 1);
+          $wrapper.remove();
+        }
+        store.setLocalStorage(this.state);
       }
-      if (classList.contains('minus')) {
-        counter.minus();
-        $counterValue.textContent = counter.value;
-      }
-      if (classList.contains('reset')) {
-        counter.reset();
-        $counterValue.textContent = counter.value;
-      }
-      if (classList.contains('remove') && this.state.counterArray.length > 1) {
-        counter = null;
-        this.state.counterArray.splice(index, 1);
-        $wrapper.remove();
-      }
-      store.setLocalStorage(this.state);
-    }
-  });
+    },
+    true
+  );
 
   $btnAddCounter.addEventListener('click', (e) => {
     addCounter(this.state.id);

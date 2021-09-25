@@ -4,8 +4,15 @@
   "type": "module",
   "description": "Simple counter app for studying",
   "main": "index.js",
-  "author": "srngch",
-  "license": "ISC",
+  "author": {
+    "name": "srngch",
+    "url": "https://github.com/srngch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srngch/vanilla-js-counter.git"
+  },
+  "license": "MIT",
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",

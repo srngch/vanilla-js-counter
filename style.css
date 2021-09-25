@@ -8,14 +8,18 @@ body {
 	font-size: 16px;
 	height: 100vh;
 	color: #333333;
+	background-color: #f8f8ff;
 }
 
 header {
+	margin-top: 2.5%;
+	width: 100%;
 	font-size: 2.75rem;
 	text-align: center;
 }
 
 footer {
+	width: 100%;
 	margin-top: 2rem;
 	font-size: 0.85rem;
 	text-align: center;
@@ -36,17 +40,45 @@ button {
 	cursor: pointer;
 }
 
+button:active {
+    box-shadow: inset -3px -1px 2px rgb(255 243 187 / 25%), inset 5px 5px 1px rgb(71 71 71 / 25%);
+    border: 1;
+}
+/* 
+button:focus {
+	outline-style: none;
+	box-shadow: none;
+	border-color: transparent;
+	border: 4px double #00ff1c;
+} */
+
+a {
+	color:#218dff;
+}
+
+i {
+	user-select: none;
+}
+
 .counter-list {
 	margin-top: 1rem;
+	margin-bottom: 1.25rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 }
 
+.counter-add {
+	display: flex;
+	justify-content: center;
+}
 #btnAddCounter {
+	width: 15em;
+	height: 2.5em;
 	font-size: 1.2rem;
-	line-height: 1.25;
+    color: ghostwhite;
+	background-color: #333333;
 }
 
 .counter-wrapper {
@@ -59,15 +91,21 @@ button {
 	border-bottom: 1px dotted #c3cece;
 }
 
+.counter-wrapper:last-child {
+	margin-bottom: 0;
+}
+
 .counter-value {
+	margin-left: 1.5rem;
+	margin-right: 0.25em;
 	font-family: 'Shrikhand', cursive;
 	font-size: 5rem;
 	line-height: 1;
-	width: 8rem;
+	min-width: 8rem;
 }
 
 .counter-control {
-	margin-right: 1em;
+	margin-right: 1.5rem;
 	padding-bottom: 0.3em;
 	display: flex;
 	justify-content: center;
@@ -82,20 +120,29 @@ button {
 	font-size: 1.2rem;
 	font-weight: bold;
 	color: #FFFFFF;
+	height: 2.5rem;
+	background-position: center;
+    background-size: 1em;
+    background-repeat: no-repeat;
 }
 
 .counter-button.plus {
-	background-color: #38618c;
+	background-image: url('./icons/fontawesome-plus-white.svg');
+	background-color: #218dff;
 }
 
 .counter-button.minus {
-	background-color: #ff5964;
+	background-image: url('./icons/fontawesome-minus-white.svg');
+	background-color: #86c1ff;
 }
 
 .counter-button.reset {
-	background-color: #c6c6c6;
+	background-image: url('./icons/fontawesome-circle-white.svg');
+	background-color: #c7c7c7;
+	background-size: 0.6em;
 }
 
 .counter-button.remove {
-	background-color: #3c3c3c;
+	background-image: url('./icons/fontawesome-cancel-white.svg');
+	background-color: #e1aeae;
 }
