@@ -130,6 +130,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/polyfill */ "./node_modules/@babel/polyfill/lib/index.js");
 /* harmony import */ var _babel_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_polyfill__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _counter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./counter.js */ "./src/js/counter.js");
+/* harmony import */ var _assets_favicon_favicon_ico__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/favicon/favicon.ico */ "./src/assets/favicon/favicon.ico");
+/* harmony import */ var _assets_favicon_favicon_16x16_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/favicon/favicon-16x16.png */ "./src/assets/favicon/favicon-16x16.png");
+/* harmony import */ var _assets_favicon_favicon_32x32_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/favicon/favicon-32x32.png */ "./src/assets/favicon/favicon-32x32.png");
+/* harmony import */ var _assets_favicon_apple_touch_icon_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/favicon/apple-touch-icon.png */ "./src/assets/favicon/apple-touch-icon.png");
+/* harmony import */ var _assets_favicon_android_chrome_192x192_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/favicon/android-chrome-192x192.png */ "./src/assets/favicon/android-chrome-192x192.png");
+/* harmony import */ var _assets_favicon_android_chrome_512x512_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../assets/favicon/android-chrome-512x512.png */ "./src/assets/favicon/android-chrome-512x512.png");
+
+
+
+
+
+
 
 
 
@@ -191,6 +203,10 @@ function App() {
 
   if ($CounterList) {
     $CounterList.addEventListener('click', function (e) {
+      if (e.target.nodeName !== 'BUTTON') {
+        return;
+      }
+
       var classList = e.target.classList;
       var $wrapper = e.target.closest('.counter-wrapper');
       var $counterValue = $wrapper.querySelector('.counter-value');
@@ -202,37 +218,35 @@ function App() {
 
       var counter = _this.state.counterArray[index].counter;
 
-      if (classList.contains('counter-button')) {
-        if (classList.contains('plus')) {
-          counter.plus();
-          $counterValue.textContent = counter.value;
-        }
-
-        if (classList.contains('minus')) {
-          counter.minus();
-          $counterValue.textContent = counter.value;
-        }
-
-        if (classList.contains('reset')) {
-          counter.reset();
-          $counterValue.textContent = counter.value;
-        }
-
-        if (classList.contains('remove') && _this.state.counterArray.length > 1) {
-          counter = null;
-
-          _this.state.counterArray.splice(index, 1);
-
-          $wrapper.remove();
-        }
-
-        store.setLocalStorage(_this.state);
+      if (classList.contains('plus')) {
+        counter.plus();
+        $counterValue.textContent = counter.value;
       }
+
+      if (classList.contains('minus')) {
+        counter.minus();
+        $counterValue.textContent = counter.value;
+      }
+
+      if (classList.contains('reset')) {
+        counter.reset();
+        $counterValue.textContent = counter.value;
+      }
+
+      if (classList.contains('remove') && _this.state.counterArray.length > 1) {
+        counter = null;
+
+        _this.state.counterArray.splice(index, 1);
+
+        $wrapper.remove();
+      }
+
+      store.setLocalStorage(_this.state);
     }, true);
   }
 
   if ($btnAddCounter) {
-    $btnAddCounter.addEventListener('click', function (e) {
+    $btnAddCounter.addEventListener('click', function () {
       addCounter(_this.state.id);
       _this.state.id++;
       store.setLocalStorage(_this.state);
@@ -10076,6 +10090,72 @@ try {
 }
 
 
+/***/ }),
+
+/***/ "./src/assets/favicon/android-chrome-192x192.png":
+/*!*******************************************************!*\
+  !*** ./src/assets/favicon/android-chrome-192x192.png ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/android-chrome-192x192.png";
+
+/***/ }),
+
+/***/ "./src/assets/favicon/android-chrome-512x512.png":
+/*!*******************************************************!*\
+  !*** ./src/assets/favicon/android-chrome-512x512.png ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/android-chrome-512x512.png";
+
+/***/ }),
+
+/***/ "./src/assets/favicon/apple-touch-icon.png":
+/*!*************************************************!*\
+  !*** ./src/assets/favicon/apple-touch-icon.png ***!
+  \*************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/apple-touch-icon.png";
+
+/***/ }),
+
+/***/ "./src/assets/favicon/favicon-16x16.png":
+/*!**********************************************!*\
+  !*** ./src/assets/favicon/favicon-16x16.png ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/favicon-16x16.png";
+
+/***/ }),
+
+/***/ "./src/assets/favicon/favicon-32x32.png":
+/*!**********************************************!*\
+  !*** ./src/assets/favicon/favicon-32x32.png ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/favicon-32x32.png";
+
+/***/ }),
+
+/***/ "./src/assets/favicon/favicon.ico":
+/*!****************************************!*\
+  !*** ./src/assets/favicon/favicon.ico ***!
+  \****************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/favicon.ico";
+
 /***/ })
 
 /******/ 	});
@@ -10129,6 +10209,18 @@ try {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -10143,6 +10235,26 @@ try {
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl + "../";
 /******/ 	})();
 /******/ 	
 /************************************************************************/

@@ -1,12 +1,12 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const svgToMiniDataURI = require('mini-svg-data-uri');
 
 module.exports = {
   entry: ['@babel/polyfill', './src/js/index.js', './src/css/style.css'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/bundle.js',
+    assetModuleFilename: 'assets/[hash][ext][query]',
   },
   plugins: [new MiniCssExtractPlugin({ filename: 'css/style.css' })],
   module: {
@@ -24,41 +24,28 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        test: /\.css/i,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '/css/',
+            },
+          },
+          'css-loader',
+        ],
       },
       {
-        test: /\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader',
-        options: {
-          // publicPath: '../css',
-          // outputPath: 'asset',
-          name: '[name].[ext]?[hash]',
+        test: /.+(assets\/icons\/).+(\.svg)/i,
+        type: 'asset/inline',
+      },
+      {
+        test: /\.(png|ico)/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/[name][ext]',
         },
       },
-      // {
-      //   test: /\.(ico|png|jpg|jpeg|gif|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      //   loader: 'url-loader',
-      //   options: {
-      //     // publicPath: 'dist/asset',
-      //     // outputPath: 'dist/asset',
-      //     name: '[name].[ext]?[hash]',
-      //     limit: 10000, // 10kb
-      //     fallback: 'file-loader',
-      //   },
-      // },
-      // {
-      //   test: /\.svg$/i,
-      //   use: [
-      //     {
-      //       loader: 'url-loader',
-      //       options: {
-      //         generator: (content) => svgToMiniDataURI(content.toString()),
-      //       },
-      //     },
-      //   ],
-      // },
     ],
   },
   devtool: 'source-map',

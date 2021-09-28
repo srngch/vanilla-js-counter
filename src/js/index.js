@@ -1,5 +1,11 @@
 import '@babel/polyfill';
 import Counter from './counter.js';
+import '../assets/favicon/favicon.ico';
+import '../assets/favicon/favicon-16x16.png';
+import '../assets/favicon/favicon-32x32.png';
+import '../assets/favicon/apple-touch-icon.png';
+import '../assets/favicon/android-chrome-192x192.png';
+import '../assets/favicon/android-chrome-512x512.png';
 
 const $ = (selector) => document.querySelector(selector);
 
@@ -62,6 +68,10 @@ function App() {
     $CounterList.addEventListener(
       'click',
       (e) => {
+        if (e.target.nodeName !== 'BUTTON') {
+          return;
+        }
+
         const classList = e.target.classList;
         const $wrapper = e.target.closest('.counter-wrapper');
         const $counterValue = $wrapper.querySelector('.counter-value');
@@ -70,36 +80,34 @@ function App() {
         const index = this.state.counterArray.findIndex((c) => c.id === id);
         let counter = this.state.counterArray[index].counter;
 
-        if (classList.contains('counter-button')) {
-          if (classList.contains('plus')) {
-            counter.plus();
-            $counterValue.textContent = counter.value;
-          }
-          if (classList.contains('minus')) {
-            counter.minus();
-            $counterValue.textContent = counter.value;
-          }
-          if (classList.contains('reset')) {
-            counter.reset();
-            $counterValue.textContent = counter.value;
-          }
-          if (
-            classList.contains('remove') &&
-            this.state.counterArray.length > 1
-          ) {
-            counter = null;
-            this.state.counterArray.splice(index, 1);
-            $wrapper.remove();
-          }
-          store.setLocalStorage(this.state);
+        if (classList.contains('plus')) {
+          counter.plus();
+          $counterValue.textContent = counter.value;
         }
+        if (classList.contains('minus')) {
+          counter.minus();
+          $counterValue.textContent = counter.value;
+        }
+        if (classList.contains('reset')) {
+          counter.reset();
+          $counterValue.textContent = counter.value;
+        }
+        if (
+          classList.contains('remove') &&
+          this.state.counterArray.length > 1
+        ) {
+          counter = null;
+          this.state.counterArray.splice(index, 1);
+          $wrapper.remove();
+        }
+        store.setLocalStorage(this.state);
       },
       true
     );
   }
 
   if ($btnAddCounter) {
-    $btnAddCounter.addEventListener('click', (e) => {
+    $btnAddCounter.addEventListener('click', () => {
       addCounter(this.state.id);
       this.state.id++;
       store.setLocalStorage(this.state);

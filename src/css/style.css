@@ -72,6 +72,7 @@ i {
 	font-size: 1.2rem;
     color: ghostwhite;
 	background-color: #333333;
+	user-select: none;
 }
 
 .counter-wrapper {
@@ -118,24 +119,24 @@ i {
     background-size: 1em;
     background-repeat: no-repeat;
 }
-/* 
+
 .counter-button.plus {
-	background-image: url('fontawesome-plus-white.svg');
+	background-image: url('../assets/icons/fontawesome-plus-white.svg');
 	background-color: #218dff;
 }
 
 .counter-button.minus {
-	background-image: url('fontawesome-minus-white.svg');
+	background-image: url('../assets/icons/fontawesome-minus-white.svg');
 	background-color: #86c1ff;
 }
 
 .counter-button.reset {
-	background-image: url('fontawesome-circle-white.svg');
+	background-image: url('../assets/icons/fontawesome-circle-white.svg');
 	background-color: #c7c7c7;
 	background-size: 0.6em;
 }
 
 .counter-button.remove {
-	background-image: url('fontawesome-cancel-white.svg');
+	background-image: url('../assets/icons/fontawesome-cancel-white.svg');
 	background-color: #e1aeae;
-} */
+}
