@@ -23,4 +23,4 @@ A simple counter app for learning Class Syntax in vanilla JavaScript.
 
 
 ## Preview
-![preview](.src/asset/preview.png)
+![preview](.src/assets/preview.png)

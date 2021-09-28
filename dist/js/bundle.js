@@ -136,6 +136,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_favicon_apple_touch_icon_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/favicon/apple-touch-icon.png */ "./src/assets/favicon/apple-touch-icon.png");
 /* harmony import */ var _assets_favicon_android_chrome_192x192_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/favicon/android-chrome-192x192.png */ "./src/assets/favicon/android-chrome-192x192.png");
 /* harmony import */ var _assets_favicon_android_chrome_512x512_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../assets/favicon/android-chrome-512x512.png */ "./src/assets/favicon/android-chrome-512x512.png");
+/* harmony import */ var _assets_preview_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../assets/preview.png */ "./src/assets/preview.png");
+
 
 
 
@@ -10155,6 +10157,17 @@ module.exports = __webpack_require__.p + "assets/favicon-32x32.png";
 
 "use strict";
 module.exports = __webpack_require__.p + "assets/favicon.ico";
+
+/***/ }),
+
+/***/ "./src/assets/preview.png":
+/*!********************************!*\
+  !*** ./src/assets/preview.png ***!
+  \********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/preview.png";
 
 /***/ })
 
