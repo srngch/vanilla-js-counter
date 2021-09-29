@@ -232,7 +232,7 @@ function App() {
     }
 
     _utils_store_js__WEBPACK_IMPORTED_MODULE_3__["default"].setLocalStorage(_this.state);
-  }, true);
+  });
   $btnAddCounter.addEventListener('click', function () {
     addCounter(_this.state.id);
     _this.state.id++;

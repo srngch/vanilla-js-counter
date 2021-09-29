@@ -57,41 +57,37 @@ function App() {
 		</section>
 	`;
 
-  $counterList.addEventListener(
-    'click',
-    (e) => {
-      if (e.target.nodeName !== 'BUTTON') {
-        return;
-      }
+  $counterList.addEventListener('click', (e) => {
+    if (e.target.nodeName !== 'BUTTON') {
+      return;
+    }
 
-      const classList = e.target.classList;
-      const $wrapper = e.target.closest('.counter-wrapper');
-      const $counterValue = $wrapper.querySelector('.counter-value');
-      const isSelectedCounterId = (c) => c.id === Number($wrapper.dataset.id);
+    const classList = e.target.classList;
+    const $wrapper = e.target.closest('.counter-wrapper');
+    const $counterValue = $wrapper.querySelector('.counter-value');
+    const isSelectedCounterId = (c) => c.id === Number($wrapper.dataset.id);
 
-      let counter = this.state.counterArray.find(isSelectedCounterId).counter;
+    let counter = this.state.counterArray.find(isSelectedCounterId).counter;
 
-      if (classList.contains('plus')) {
-        counter.plus();
-        $counterValue.textContent = counter.value;
-      }
-      if (classList.contains('minus')) {
-        counter.minus();
-        $counterValue.textContent = counter.value;
-      }
-      if (classList.contains('reset')) {
-        counter.reset();
-        $counterValue.textContent = counter.value;
-      }
-      if (classList.contains('remove') && this.state.counterArray.length > 1) {
-        this.state.counterArray.filter(isSelectedCounterId);
-        counter = null;
-        $wrapper.remove();
-      }
-      Store.setLocalStorage(this.state);
-    },
-    true
-  );
+    if (classList.contains('plus')) {
+      counter.plus();
+      $counterValue.textContent = counter.value;
+    }
+    if (classList.contains('minus')) {
+      counter.minus();
+      $counterValue.textContent = counter.value;
+    }
+    if (classList.contains('reset')) {
+      counter.reset();
+      $counterValue.textContent = counter.value;
+    }
+    if (classList.contains('remove') && this.state.counterArray.length > 1) {
+      this.state.counterArray.filter(isSelectedCounterId);
+      counter = null;
+      $wrapper.remove();
+    }
+    Store.setLocalStorage(this.state);
+  });
 
   $btnAddCounter.addEventListener('click', () => {
     addCounter(this.state.id);
