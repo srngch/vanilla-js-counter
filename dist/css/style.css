@@ -24,6 +24,7 @@ header {
 footer {
 	width: 100%;
 	margin-top: 2rem;
+	margin-bottom: 3rem;
 	font-size: 0.85rem;
 	text-align: center;
 }
@@ -66,16 +67,21 @@ i {
 }
 
 .counter-add {
-	display: flex;
-	justify-content: center;
+	position: fixed;
+    bottom: 1rem;
+    right: 1rem;
 }
+
 #btnAddCounter {
-	width: 15em;
-	height: 2.5em;
-	font-size: 1.2rem;
+	width: 6rem;
+    height: 6rem;
+    font-size: 1rem;
+    text-align: center;
     color: ghostwhite;
-	background-color: #333333;
-	user-select: none;
+    background-color: #333333;
+    border-radius: 50%;
+    user-select: none;
+	box-shadow: 0 3px 10px 1px rgb(0 0 0 / 45%);
 }
 
 .counter-wrapper {

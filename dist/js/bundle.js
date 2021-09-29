@@ -130,13 +130,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/polyfill */ "./node_modules/@babel/polyfill/lib/index.js");
 /* harmony import */ var _babel_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_polyfill__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _counter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./counter.js */ "./src/js/counter.js");
-/* harmony import */ var _assets_favicon_favicon_ico__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/favicon/favicon.ico */ "./src/assets/favicon/favicon.ico");
-/* harmony import */ var _assets_favicon_favicon_16x16_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/favicon/favicon-16x16.png */ "./src/assets/favicon/favicon-16x16.png");
-/* harmony import */ var _assets_favicon_favicon_32x32_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/favicon/favicon-32x32.png */ "./src/assets/favicon/favicon-32x32.png");
-/* harmony import */ var _assets_favicon_apple_touch_icon_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/favicon/apple-touch-icon.png */ "./src/assets/favicon/apple-touch-icon.png");
-/* harmony import */ var _assets_favicon_android_chrome_192x192_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/favicon/android-chrome-192x192.png */ "./src/assets/favicon/android-chrome-192x192.png");
-/* harmony import */ var _assets_favicon_android_chrome_512x512_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../assets/favicon/android-chrome-512x512.png */ "./src/assets/favicon/android-chrome-512x512.png");
-/* harmony import */ var _assets_preview_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../assets/preview.png */ "./src/assets/preview.png");
+/* harmony import */ var _utils_querySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/querySelector.js */ "./src/js/utils/querySelector.js");
+/* harmony import */ var _utils_store_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/store.js */ "./src/js/utils/store.js");
+/* harmony import */ var _assets_favicon_favicon_ico__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/favicon/favicon.ico */ "./src/assets/favicon/favicon.ico");
+/* harmony import */ var _assets_favicon_favicon_16x16_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/favicon/favicon-16x16.png */ "./src/assets/favicon/favicon-16x16.png");
+/* harmony import */ var _assets_favicon_favicon_32x32_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/favicon/favicon-32x32.png */ "./src/assets/favicon/favicon-32x32.png");
+/* harmony import */ var _assets_favicon_apple_touch_icon_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../assets/favicon/apple-touch-icon.png */ "./src/assets/favicon/apple-touch-icon.png");
+/* harmony import */ var _assets_favicon_android_chrome_192x192_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../assets/favicon/android-chrome-192x192.png */ "./src/assets/favicon/android-chrome-192x192.png");
+/* harmony import */ var _assets_favicon_android_chrome_512x512_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../assets/favicon/android-chrome-512x512.png */ "./src/assets/favicon/android-chrome-512x512.png");
+/* harmony import */ var _assets_preview_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../assets/preview.png */ "./src/assets/preview.png");
 
 
 
@@ -147,18 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var $ = function $(selector) {
-  return document.querySelector(selector);
-};
 
-var store = {
-  setLocalStorage: function setLocalStorage(data) {
-    localStorage.setItem('data', JSON.stringify(data));
-  },
-  getLocalStorage: function getLocalStorage() {
-    return JSON.parse(localStorage.getItem('data'));
-  }
-};
 
 function App() {
   var _this = this;
@@ -169,7 +160,7 @@ function App() {
   };
 
   this.init = function () {
-    var storedData = store.getLocalStorage();
+    var storedData = _utils_store_js__WEBPACK_IMPORTED_MODULE_3__["default"].getLocalStorage();
 
     if (storedData) {
       _this.state.id = storedData.id;
@@ -184,8 +175,8 @@ function App() {
     _this.state.id++;
   };
 
-  var $CounterList = $('.counter-list');
-  var $btnAddCounter = $('#btnAddCounter');
+  var $counterList = (0,_utils_querySelector_js__WEBPACK_IMPORTED_MODULE_2__["default"])('.counter-list');
+  var $btnAddCounter = (0,_utils_querySelector_js__WEBPACK_IMPORTED_MODULE_2__["default"])('#btnAddCounter');
 
   var addCounter = function addCounter(id) {
     var initValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
@@ -195,7 +186,7 @@ function App() {
       counter: new _counter_js__WEBPACK_IMPORTED_MODULE_1__["default"](initValue)
     });
 
-    $CounterList.insertAdjacentHTML('beforeend', counterTemplate(id, initValue));
+    $counterList.insertAdjacentHTML('beforeend', counterTemplate(id, initValue));
   };
 
   var counterTemplate = function counterTemplate(id) {
@@ -203,61 +194,97 @@ function App() {
     return "\n\t\t<section class=\"counter-wrapper\" data-id=\"".concat(id, "\">\n\t\t\t<div class=\"counter-value\">").concat(value, "</div>\n\t\t\t<div class=\"counter-control\">\n\t\t\t\t<button class=\"counter-button plus\"><i class=\"icon-plus\"></i></button>\n\t\t\t\t<button class=\"counter-button minus\"><i class=\"icon-minus\"></i></button>\n\t\t\t\t<button class=\"counter-button reset\"><i class=\"icon-circle\"></i></button>\n\t\t\t\t<button class=\"counter-button remove\"><i class=\"icon-cancel\"></i></button>\n\t\t\t</div>\n\t\t</section>\n\t");
   };
 
-  if ($CounterList) {
-    $CounterList.addEventListener('click', function (e) {
-      if (e.target.nodeName !== 'BUTTON') {
-        return;
-      }
+  $counterList.addEventListener('click', function (e) {
+    if (e.target.nodeName !== 'BUTTON') {
+      return;
+    }
 
-      var classList = e.target.classList;
-      var $wrapper = e.target.closest('.counter-wrapper');
-      var $counterValue = $wrapper.querySelector('.counter-value');
-      var id = Number($wrapper.dataset.id);
+    var classList = e.target.classList;
+    var $wrapper = e.target.closest('.counter-wrapper');
+    var $counterValue = $wrapper.querySelector('.counter-value');
 
-      var index = _this.state.counterArray.findIndex(function (c) {
-        return c.id === id;
-      });
+    var isSelectedCounterId = function isSelectedCounterId(c) {
+      return c.id === Number($wrapper.dataset.id);
+    };
 
-      var counter = _this.state.counterArray[index].counter;
+    var counter = _this.state.counterArray.find(isSelectedCounterId).counter;
 
-      if (classList.contains('plus')) {
-        counter.plus();
-        $counterValue.textContent = counter.value;
-      }
+    if (classList.contains('plus')) {
+      counter.plus();
+      $counterValue.textContent = counter.value;
+    }
 
-      if (classList.contains('minus')) {
-        counter.minus();
-        $counterValue.textContent = counter.value;
-      }
+    if (classList.contains('minus')) {
+      counter.minus();
+      $counterValue.textContent = counter.value;
+    }
 
-      if (classList.contains('reset')) {
-        counter.reset();
-        $counterValue.textContent = counter.value;
-      }
+    if (classList.contains('reset')) {
+      counter.reset();
+      $counterValue.textContent = counter.value;
+    }
 
-      if (classList.contains('remove') && _this.state.counterArray.length > 1) {
-        counter = null;
+    if (classList.contains('remove') && _this.state.counterArray.length > 1) {
+      _this.state.counterArray.filter(isSelectedCounterId);
 
-        _this.state.counterArray.splice(index, 1);
+      counter = null;
+      $wrapper.remove();
+    }
 
-        $wrapper.remove();
-      }
-
-      store.setLocalStorage(_this.state);
-    }, true);
-  }
-
-  if ($btnAddCounter) {
-    $btnAddCounter.addEventListener('click', function () {
-      addCounter(_this.state.id);
-      _this.state.id++;
-      store.setLocalStorage(_this.state);
-    });
-  }
+    _utils_store_js__WEBPACK_IMPORTED_MODULE_3__["default"].setLocalStorage(_this.state);
+  }, true);
+  $btnAddCounter.addEventListener('click', function () {
+    addCounter(_this.state.id);
+    _this.state.id++;
+    _utils_store_js__WEBPACK_IMPORTED_MODULE_3__["default"].setLocalStorage(_this.state);
+    $btnAddCounter.scrollIntoView();
+  });
 }
 
 var app = new App();
 app.init();
+
+/***/ }),
+
+/***/ "./src/js/utils/querySelector.js":
+/*!***************************************!*\
+  !*** ./src/js/utils/querySelector.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var $ = function $(selector) {
+  return document.querySelector(selector);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ($);
+
+/***/ }),
+
+/***/ "./src/js/utils/store.js":
+/*!*******************************!*\
+  !*** ./src/js/utils/store.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var store = {
+  setLocalStorage: function setLocalStorage(data) {
+    localStorage.setItem('data', JSON.stringify(data));
+  },
+  getLocalStorage: function getLocalStorage() {
+    return JSON.parse(localStorage.getItem('data'));
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);
 
 /***/ }),
 
