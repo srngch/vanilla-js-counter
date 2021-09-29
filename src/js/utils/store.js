@@ -1,10 +1,10 @@
-const store = {
-  setLocalStorage(data) {
+class Store {
+  static setLocalStorage(data) {
     localStorage.setItem('data', JSON.stringify(data));
-  },
-  getLocalStorage() {
+  }
+  static getLocalStorage() {
     return JSON.parse(localStorage.getItem('data'));
-  },
-};
+  }
+}
 
-export default store;
+export default Store;

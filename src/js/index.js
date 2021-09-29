@@ -1,7 +1,7 @@
 import '@babel/polyfill';
 import Counter from './counter.js';
 import $ from './utils/querySelector.js';
-import store from './utils/store.js';
+import Store from './utils/store.js';
 
 import '../assets/favicon/favicon.ico';
 import '../assets/favicon/favicon-16x16.png';
@@ -18,7 +18,7 @@ function App() {
   };
 
   this.init = () => {
-    const storedData = store.getLocalStorage();
+    const storedData = Store.getLocalStorage();
     if (storedData) {
       this.state.id = storedData.id;
       storedData.counterArray.forEach((c) => {
@@ -88,7 +88,7 @@ function App() {
         counter = null;
         $wrapper.remove();
       }
-      store.setLocalStorage(this.state);
+      Store.setLocalStorage(this.state);
     },
     true
   );
@@ -96,7 +96,7 @@ function App() {
   $btnAddCounter.addEventListener('click', () => {
     addCounter(this.state.id);
     this.state.id++;
-    store.setLocalStorage(this.state);
+    Store.setLocalStorage(this.state);
     $btnAddCounter.scrollIntoView();
   });
 }

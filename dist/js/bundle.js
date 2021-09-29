@@ -276,15 +276,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var store = {
-  setLocalStorage: function setLocalStorage(data) {
-    localStorage.setItem('data', JSON.stringify(data));
-  },
-  getLocalStorage: function getLocalStorage() {
-    return JSON.parse(localStorage.getItem('data'));
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Store = /*#__PURE__*/function () {
+  function Store() {
+    _classCallCheck(this, Store);
   }
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);
+
+  _createClass(Store, null, [{
+    key: "setLocalStorage",
+    value: function setLocalStorage(data) {
+      localStorage.setItem('data', JSON.stringify(data));
+    }
+  }, {
+    key: "getLocalStorage",
+    value: function getLocalStorage() {
+      return JSON.parse(localStorage.getItem('data'));
+    }
+  }]);
+
+  return Store;
+}();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Store);
 
 /***/ }),
 
