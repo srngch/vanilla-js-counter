@@ -25,6 +25,7 @@ A simple counter app for learning Class Syntax in vanilla JavaScript.
 - [ ] Apply [html-loader](https://webpack.js.org/loaders/html-loader/) & [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/)
 - [ ] `npm run start`
 - [ ] Minimize
+- [ ] Style: Fix the `Add a new counter` button position
 
 ## Preview
 ![preview](./src/assets/preview.png)

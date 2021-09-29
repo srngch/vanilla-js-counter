@@ -7,9 +7,9 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	min-height: 100vh;
 	font-family: 'Comfortaa', cursive;
 	font-size: 16px;
-	height: 100vh;
 	color: #333333;
 	background-color: #f8f8ff;
 }
