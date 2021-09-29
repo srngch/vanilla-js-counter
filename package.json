@@ -4,7 +4,6 @@
   "description": "Simple counter app for studying",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --open 'google-chrome'",
     "watch": "webpack --watch",
     "build": "webpack"
   },

@@ -23,6 +23,7 @@ A simple counter app for learning Class Syntax in vanilla JavaScript.
 - [x] Style: match the buttons in columns regardless of the width of numbers
 - [ ] Apply [WebpackManifestPlugin](https://github.com/shellscape/webpack-manifest-plugin) for `.webmanifest` file
 - [ ] Apply [html-loader](https://webpack.js.org/loaders/html-loader/) & [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/)
+- [ ] `npm run start`
 - [ ] Minimize
 
 ## Preview
