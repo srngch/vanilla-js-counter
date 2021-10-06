@@ -26,6 +26,7 @@ A simple counter app for learning Class Syntax in vanilla JavaScript.
 - [x] Style: match the buttons in columns regardless of the width of numbers
 - [x] Style: Fix the `Add a new counter` button position
 - [x] Separate util functions into file
+- [ ] Fix the problem that counter deletion isn't stored
 - [ ] Apply [WebpackManifestPlugin](https://github.com/shellscape/webpack-manifest-plugin) for `.webmanifest` file
 - [ ] Apply [html-loader](https://webpack.js.org/loaders/html-loader/) & [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/)
 - [ ] `counter.js`: Make `id` property in Counter class
